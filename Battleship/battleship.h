@@ -1,5 +1,7 @@
 #pragma once
 
+#include "network_layer.h"
+
 #include <QMainWindow>
 #include <QGridLayout>
 #include <QPushButton>
@@ -24,6 +26,7 @@ public:
     ~Battleship();
 
 private:
+    BattleshipSocket *battleShipSocket;
     Ui::Battleship *ui;
     QSignalMapper *myMapper;
     QSignalMapper *enemyMapper;

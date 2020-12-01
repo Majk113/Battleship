@@ -9,6 +9,8 @@ Battleship::Battleship(QWidget *parent):
     myMapper = new QSignalMapper(this);
     enemyMapper = new QSignalMapper(this);
     initializeBoards();
+    battleShipSocket = new BattleshipSocket();
+    battleShipSocket->initializeClient();
 }
 
 Battleship::~Battleship()

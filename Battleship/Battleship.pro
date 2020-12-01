@@ -11,10 +11,12 @@ CONFIG += c++11
 
 SOURCES += \
     main.cpp \
-    battleship.cpp
+    battleship.cpp \
+    network_layer.cpp
 
 HEADERS += \
-    battleship.h
+    battleship.h \
+    network_layer.h
 
 FORMS += \
     battleship.ui
