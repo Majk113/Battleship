@@ -10,12 +10,14 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    logger.cpp \
     main.cpp \
     battleship.cpp \
     network_layer.cpp
 
 HEADERS += \
     battleship.h \
+    logger.h \
     network_layer.h
 
 FORMS += \

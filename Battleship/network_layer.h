@@ -1,19 +1,18 @@
 #pragma once
 
-#include <QTcpSocket>
-#include <QHostAddress>
 #include <QTcpServer>
+#include <QTcpSocket>
 
-class BattleshipSocket
+#include "logger.h"
+
+
+class TcpCommunication
 {
 public:
-    BattleshipSocket();
-
-    void initializeServer();
-    void initializeClient();
+    TcpCommunication() = delete;
+    TcpCommunication(Logger* logger);
 
 private:
-    QHostAddress address;
-    QTcpSocket *client;
-    QTcpServer *server;
+    QTcpSocket* socket;
+    QTcpServer* server;
 };

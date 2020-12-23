@@ -14,6 +14,8 @@
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
+#include <QtWidgets/QPlainTextEdit>
+#include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QWidget>
 
@@ -27,6 +29,9 @@ public:
     QGridLayout *myGridLayout;
     QWidget *gridLayoutWidget_2;
     QGridLayout *enemyGridLayout;
+    QPushButton *serverButton;
+    QPushButton *clientButton;
+    QPlainTextEdit *logTextWindow;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -49,6 +54,16 @@ public:
         enemyGridLayout = new QGridLayout(gridLayoutWidget_2);
         enemyGridLayout->setObjectName(QString::fromUtf8("enemyGridLayout"));
         enemyGridLayout->setContentsMargins(0, 0, 0, 0);
+        serverButton = new QPushButton(centralwidget);
+        serverButton->setObjectName(QString::fromUtf8("serverButton"));
+        serverButton->setGeometry(QRect(60, 80, 75, 23));
+        clientButton = new QPushButton(centralwidget);
+        clientButton->setObjectName(QString::fromUtf8("clientButton"));
+        clientButton->setGeometry(QRect(150, 80, 75, 23));
+        logTextWindow = new QPlainTextEdit(centralwidget);
+        logTextWindow->setObjectName(QString::fromUtf8("logTextWindow"));
+        logTextWindow->setGeometry(QRect(420, 20, 311, 181));
+        logTextWindow->setReadOnly(true);
         Battleship->setCentralWidget(centralwidget);
         menubar = new QMenuBar(Battleship);
         menubar->setObjectName(QString::fromUtf8("menubar"));
@@ -66,6 +81,9 @@ public:
     void retranslateUi(QMainWindow *Battleship)
     {
         Battleship->setWindowTitle(QCoreApplication::translate("Battleship", "Battleship", nullptr));
+        serverButton->setText(QCoreApplication::translate("Battleship", "Server", nullptr));
+        clientButton->setText(QCoreApplication::translate("Battleship", "Host", nullptr));
+        logTextWindow->setPlainText(QString());
     } // retranslateUi
 
 };

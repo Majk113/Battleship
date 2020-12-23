@@ -1,6 +1,7 @@
 #pragma once
 
 #include "network_layer.h"
+#include "logger.h"
 
 #include <QMainWindow>
 #include <QGridLayout>
@@ -26,16 +27,27 @@ public:
     ~Battleship();
 
 private:
-    BattleshipSocket *battleShipSocket;
     Ui::Battleship *ui;
     QSignalMapper *myMapper;
     QSignalMapper *enemyMapper;
     QPushButton *myBoard[10][10];
     QPushButton *enemyBoard[10][10];
 
+    QTcpServer* server;
+    QTcpSocket* socket;
+
+    Logger* logger;
+
     void initializeBoards();
 
 private slots:
     void slotFun(int value);
     void slotFun2(int value);
+    void slotFun3();
+    void slotFun4();
+    void slotFun5();
+
+public slots:
+    void createServer();
+    void createClient();
 };
