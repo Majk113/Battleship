@@ -2,6 +2,9 @@
 
 #include "network_layer.h"
 #include "logger.h"
+#include "field.h"
+#include "message.h"
+#include "battleship_engine.h"
 
 #include <QMainWindow>
 #include <QGridLayout>
@@ -13,6 +16,7 @@
 #include <iostream>
 #include <utility>
 #include <string>
+#include <array>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Battleship; }
@@ -33,19 +37,22 @@ private:
     QPushButton *myBoard[10][10];
     QPushButton *enemyBoard[10][10];
 
-    QTcpServer* server;
-    QTcpSocket* socket;
-
     Logger* logger;
+    Communication* communication;
+
+    BattleshipEngine engine;
 
     void initializeBoards();
+    void initializeFields();
 
 private slots:
-    void slotFun(int value);
-    void slotFun2(int value);
-    void slotFun3();
-    void slotFun4();
-    void slotFun5();
+    void clickedMyBoard(int value);
+    void clickedEnemyBoard(int value);
+    void connectedWithClientCallback();
+    void connectedWithServerCallback();
+    void receivedDatagram();
+
+    void changeButtonsColour(int value);
 
 public slots:
     void createServer();
